@@ -404,8 +404,10 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
                 renderBoxOffset.dy -
                 renderBoxSize.height;
 
-            final showOnTop =
-                availableHeight < widget.dropdownDecoration.maxHeight;
+            const showOnTop = false;
+
+            // final showOnTop =
+            //     availableHeight < widget.dropdownDecoration.maxHeight;
 
             final stack = Stack(
               children: [
