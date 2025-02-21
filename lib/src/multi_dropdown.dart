@@ -104,6 +104,7 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
     this.selectedItemBuilder,
     this.focusNode,
     this.onSelectionChange,
+    this.itemsNotFoundText,
     this.onSearchChange,
     this.closeOnBackButton = false,
     Key? key,
@@ -153,6 +154,7 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
     this.focusNode,
     this.onSelectionChange,
     this.onSearchChange,
+    this.itemsNotFoundText,
     this.closeOnBackButton = false,
     Key? key,
   })  : items = const [],
@@ -208,6 +210,8 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
 
   /// The focus node for the dropdown.
   final FocusNode? focusNode;
+
+  final String? itemsNotFoundText;
 
   /// The future request for the dropdown items.
   final FutureRequest<T>? future;
@@ -441,6 +445,8 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
                       maxSelections: widget.maxSelections,
                       singleSelect: widget.singleSelect,
                       onSearchChange: _dropdownController._setSearchQuery,
+                      itemsNotFoundText:
+                          widget.itemsNotFoundText ?? 'Item not found',
                     ),
                   ),
                 ),

@@ -17,6 +17,7 @@ class _Dropdown<T> extends StatelessWidget {
     this.onSearchChange,
     this.itemBuilder,
     this.itemSeparator,
+    required this.itemsNotFoundText,
     this.singleSelect = false,
   }) : super(key: key);
 
@@ -40,6 +41,9 @@ class _Dropdown<T> extends StatelessWidget {
 
   /// The decoration of the search field.
   final SearchFieldDecoration searchDecoration;
+
+  ///
+  final String itemsNotFoundText;
 
   /// The maximum number of selections allowed.
   final int maxSelections;
@@ -113,7 +117,7 @@ class _Dropdown<T> extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: Text(
-                    'No items found',
+                    itemsNotFoundText,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium,
                   ),
